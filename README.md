@@ -4,9 +4,10 @@
 
 # currency-tracker
 
-
-
-Description : a python script to push event to kinesis
+Description : A currency exchange traker based on Boursorama Website. 
+1) The idea is to gather information is order to feed a dataset in a first step.
+2) Detect and study the algorithme that lead to influence each currency
+3) Produce a model.
 
 HOW It WORKS
 ================
@@ -14,18 +15,28 @@ The configuration is inside the python script :
 
 Requierements
 ================
-aws_region
-stream_name
-record_delimiter
+This code could be run on a linux machine : 
+
+this is systemD configuration to set it up as a deamon :
 ```
-config = dict(
-    aws_region='eu-west-3',
-    buffer_size_limit=100000,
-    buffer_time_limit=0.2,
-    kinesis_concurrency=1,
-    kinesis_max_retries=10,
-    record_delimiter='\n',
-    stream_name='recomender',
-    )
+#####/etc/systemd/system/currency-tracker.service 
+[Unit]
+Description=Currency Tracker
+Documentation=http://currency-0000----XXXXXXX.io/
+After=network.target
+
+[Service]
+Type=simple
+User=centos
+Group=centos
+WorkingDirectory=/home/centos/
+ExecStart=/bin/python /home/centos/currency-tracker-v0.1.py
+
+TimeoutStopSec=180
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
 ```
+it also can be run on a docker container a aws lambda serverless or Amazon azure function
 
