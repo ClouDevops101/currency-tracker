@@ -1,0 +1,17 @@
+[Unit]
+Description=Currency Tracker
+Documentation=http://currency-0000----XXXXXXX.io/
+After=network.target
+
+[Service]
+Type=simple
+User=centos
+Group=centos
+WorkingDirectory=/home/centos/
+ExecStart=/bin/python /home/centos/currency-tracker-v0.1.py
+
+TimeoutStopSec=180
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
