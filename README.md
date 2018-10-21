@@ -32,6 +32,15 @@ This algorithme avoid to check the same currency twice, so the idea is to rotate
 
 The configuration is inside the python script : 
 
+Sleep between checks :
+====================================
+In order to do a clean check and not subcharge the server side, we do a sleep between every check the value of this check is higher when the rate curve is going down, lower when the curve is up. 
+```python
+        while index == last:
+            index = random.randint(0, len(exchange) - 1)
+```
+
+The configuration is inside the python script : 
 Requierements
 ================
 This code could be run on a linux machine : 
