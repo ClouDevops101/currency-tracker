@@ -14,12 +14,12 @@ import os
 import json
 import numpy as np
 
-env-live-user =  os.environ['live-user']
-env-live_pass =  os.environ['live-pass']
-env-gmail-user = os.environ['env-gmail-user']
-env-gmail_pass = os.environ['env-gmail_pass']
-env-icloud-user =  os.environ['env-icloud-user']
-env-icloud_pass =  os.environ['env-icloud_pass']
+#env-live-user =  os.environ['live-user']
+#env-live_pass =  os.environ['live-pass']
+#env-gmail-user = os.environ['env-gmail-user']
+#env-gmail_pass = os.environ['env-gmail_pass']
+#env-icloud-user =  os.environ['env-icloud-user']
+#env-icloud_pass =  os.environ['env-icloud_pass']
 
 
 base_url = 'https://www.boursorama.com/bourse/devises/taux-de-change-hello-yes-'
