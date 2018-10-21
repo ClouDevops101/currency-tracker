@@ -34,7 +34,7 @@ The configuration is inside the python script :
 
 Sleep between checks :
 ====================================
-In order to do a clean check and not subcharge the server side, we do a sleep between every check the value of this check is higher when the rate curve is going down, lower when the curve is up. 
+In order to do a clean check and not subcharge the server side, we do a sleep between every check the value is the modulo the variation, as the variation could be negative then the higher the shorter the sleep is , long when the variation is negative. 
 ```python
         while index == last:
             index = random.randint(0, len(exchange) - 1)
