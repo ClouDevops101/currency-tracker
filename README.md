@@ -4,13 +4,32 @@
 
 # currency-tracker
 
-Description : A currency exchange traker based on Boursorama Website. 
+Description : A currency exchange tracker based on Boursorama Website. 
 1) The idea is to gather information is order to feed a dataset in a first step.
 2) Detect and study the algorithme that lead to influence each currency
 3) Produce a model.
 
 HOW It WORKS
 ================
+The exchange dict store the revelent value and condition to trigger a notification, ex when a currency is higher or lower than a certain value (bestrate)
+```python
+exchange = [
+    {'devise': 'EUR-MAD', 'condition': '>=', 'bestrate': '10.97', 'weight': 0},
+    {'devise': 'EUR-USD', 'condition': '>=', 'bestrate': '1.1944', 'weight': 0},
+     {'devise':'USD-MAD','condition':'<=','bestrate':'9.3529','weight':0},
+      {'devise':'JPY-EUR','condition':'<', 'bestrate':'0.75166','weight':0},
+      {'devise':'CNY-EUR','condition':'>', 'bestrate':'0.12832','weight':0}
+]
+```
+
+Rotation : Random but the last one :
+====================================
+This algorithme avoid to check the same currency twice, so the idea is to rotate over other currency randomly.
+```python
+        while index == last:
+            index = random.randint(0, len(exchange) - 1)
+```
+
 The configuration is inside the python script : 
 
 Requierements
